@@ -8,7 +8,7 @@ final class NotificationViewModel {
     private let historyStore: ReminderHistoryStoring
 
     var permission: NotificationPermission = .notDetermined
-    var reminderTitle = "Beber água"
+    var reminderTitle = "Drink water"
     var reminderDate = Date.now.addingTimeInterval(300)
     var isLoading = false
     var confirmationMessage = ""
@@ -57,7 +57,7 @@ final class NotificationViewModel {
             let content = ReminderNotificationContentFactory.scheduled(from: input)
             try await service.schedule(content)
             addToHistory(content)
-            confirmationMessage = "Lembrete agendado para \(content.date.formatted(date: .abbreviated, time: .shortened))."
+            confirmationMessage = "Reminder scheduled for \(content.date.formatted(date: .abbreviated, time: .shortened))."
             isShowingConfirmation = true
         } catch {
             errorMessage = error.localizedDescription
@@ -73,7 +73,7 @@ final class NotificationViewModel {
             let content = try ReminderNotificationContentFactory.immediate(title: reminderTitle)
             try await service.sendNow(content)
             addToHistory(content)
-            confirmationMessage = "Lembrete enviado. Ele aparecerá em instantes."
+            confirmationMessage = "Reminder sent. It will appear shortly."
             isShowingConfirmation = true
         } catch {
             errorMessage = error.localizedDescription

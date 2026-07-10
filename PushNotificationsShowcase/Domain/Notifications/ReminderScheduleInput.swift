@@ -20,8 +20,8 @@ enum ReminderScheduleError: LocalizedError, Equatable {
 
     var errorDescription: String? {
         switch self {
-        case .emptyTitle: "Informe o texto do lembrete."
-        case .dateMustBeInFuture: "Escolha uma data futura."
+        case .emptyTitle: "Enter reminder text."
+        case .dateMustBeInFuture: "Choose a future date."
         }
     }
 }

@@ -5,13 +5,13 @@ struct ReminderDetailView: View {
 
     var body: some View {
         ContentUnavailableView {
-            Label("Lembrete aberto", systemImage: "bell.and.waves.left.and.right.fill")
+            Label("Reminder Opened", systemImage: "bell.and.waves.left.and.right.fill")
         } description: {
-            Text("Esta tela foi aberta ao tocar na notificação local.")
+            Text("This screen opened after tapping the local notification.")
         }
-        .navigationTitle("Detalhe")
+        .navigationTitle("Details")
         .navigationBarTitleDisplayMode(.inline)
         .accessibilityElement(children: .combine)
-        .accessibilityHint("Identificador do lembrete: \(reminderID)")
+        .accessibilityHint("Reminder ID: \(reminderID)")
     }
 }

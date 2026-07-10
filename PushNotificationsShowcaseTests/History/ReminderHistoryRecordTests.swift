@@ -7,8 +7,8 @@ struct ReminderHistoryRecordTests {
         let date = Date.now.addingTimeInterval(120)
         let content = ReminderNotificationContent(
             identifier: "record-123",
-            title: "Lembrete",
-            body: "Enviar relatório",
+            title: "Reminder",
+            body: "Send report",
             date: date,
             delivery: .scheduled
         )
@@ -16,7 +16,7 @@ struct ReminderHistoryRecordTests {
         let record = ReminderHistoryRecord(content: content, createdAt: .now)
 
         #expect(record.id == "record-123")
-        #expect(record.title == "Enviar relatório")
+        #expect(record.title == "Send report")
         #expect(record.scheduledFor == date)
         #expect(record.delivery == .scheduled)
     }

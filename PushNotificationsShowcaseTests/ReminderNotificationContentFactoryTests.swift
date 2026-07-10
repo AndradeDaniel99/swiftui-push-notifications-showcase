@@ -5,13 +5,13 @@ import Testing
 struct ReminderNotificationContentFactoryTests {
     @Test func buildsExpectedLocalNotificationContent() {
         let date = Date.now.addingTimeInterval(600)
-        let input = ReminderScheduleInput(title: "Reunião de planejamento", date: date)
+        let input = ReminderScheduleInput(title: "Planning meeting", date: date)
 
         let result = ReminderNotificationContentFactory.scheduled(from: input, identifier: "reminder-123")
 
         #expect(result.identifier == "reminder-123")
-        #expect(result.title == "Lembrete")
-        #expect(result.body == "Reunião de planejamento")
+        #expect(result.title == "Reminder")
+        #expect(result.body == "Planning meeting")
         #expect(result.date == date)
         #expect(result.delivery == .scheduled)
     }
@@ -19,10 +19,10 @@ struct ReminderNotificationContentFactoryTests {
     @Test func buildsImmediateNotificationWithNormalizedTitle() throws {
         let now = Date.now
 
-        let result = try ReminderNotificationContentFactory.immediate(title: "  Pausa  ", now: now, identifier: "reminder-now")
+        let result = try ReminderNotificationContentFactory.immediate(title: "  Break  ", now: now, identifier: "reminder-now")
 
         #expect(result.identifier == "reminder-now")
-        #expect(result.body == "Pausa")
+        #expect(result.body == "Break")
         #expect(result.date == now)
         #expect(result.delivery == .immediate)
     }

@@ -13,7 +13,7 @@ struct ContentView: View {
                 reminderSection
                 historySection
             }
-            .navigationTitle("Lembretes")
+            .navigationTitle("Reminders")
             .navigationDestination(item: $router.destination) { destination in
                 switch destination {
                 case let .reminder(id):
@@ -24,12 +24,12 @@ struct ContentView: View {
                 await viewModel.refreshPermission()
                 viewModel.loadHistory()
             }
-            .alert("Não foi possível concluir", isPresented: $viewModel.isShowingError) {
+            .alert("Unable to Complete", isPresented: $viewModel.isShowingError) {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text(viewModel.errorMessage)
             }
-            .alert("Tudo certo", isPresented: $viewModel.isShowingConfirmation) {
+            .alert("Success", isPresented: $viewModel.isShowingConfirmation) {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text(viewModel.confirmationMessage)
@@ -38,7 +38,7 @@ struct ContentView: View {
     }
 
     private var permissionSection: some View {
-        Section("Notificações") {
+        Section("Notifications") {
             Label(viewModel.permission.title, systemImage: permissionIcon)
                 .foregroundStyle(permissionColor)
             Text(viewModel.permission.detail)
@@ -46,7 +46,7 @@ struct ContentView: View {
                 .foregroundStyle(.secondary)
 
             if viewModel.permission == .notDetermined {
-                Button("Permitir notificações", systemImage: "bell.badge") {
+                Button("Allow Notifications", systemImage: "bell.badge") {
                     Task { await viewModel.requestPermission() }
                 }
                 .disabled(viewModel.isLoading)
@@ -55,16 +55,16 @@ struct ContentView: View {
     }
 
     private var reminderSection: some View {
-        Section("Novo lembrete") {
-            TextField("Texto do lembrete", text: $viewModel.reminderTitle)
-            DatePicker("Quando", selection: $viewModel.reminderDate, in: Date.now..., displayedComponents: [.date, .hourAndMinute])
+        Section("New Reminder") {
+            TextField("Reminder text", text: $viewModel.reminderTitle)
+            DatePicker("When", selection: $viewModel.reminderDate, in: Date.now..., displayedComponents: [.date, .hourAndMinute])
 
-            Button("Enviar agora", systemImage: "bell.badge.fill") {
+            Button("Send Now", systemImage: "bell.badge.fill") {
                 Task { await viewModel.sendReminderNow() }
             }
             .disabled(!viewModel.permission.canSchedule || viewModel.isLoading)
 
-            Button("Agendar lembrete", systemImage: "calendar.badge.plus") {
+            Button("Schedule Reminder", systemImage: "calendar.badge.plus") {
                 Task { await viewModel.scheduleReminder() }
             }
             .disabled(!viewModel.permission.canSchedule || viewModel.isLoading)
@@ -73,12 +73,12 @@ struct ContentView: View {
 
     @ViewBuilder
     private var historySection: some View {
-        Section("Histórico") {
+        Section("History") {
             if viewModel.history.isEmpty {
                 ContentUnavailableView(
-                    "Nenhum lembrete enviado",
+                    "No Reminders Sent",
                     systemImage: "clock",
-                    description: Text("Os lembretes enviados ou agendados aparecerão aqui.")
+                    description: Text("Sent and scheduled reminders will appear here.")
                 )
             } else {
                 ForEach(viewModel.history) { record in

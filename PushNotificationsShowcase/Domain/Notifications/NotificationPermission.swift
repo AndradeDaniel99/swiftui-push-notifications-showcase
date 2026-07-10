@@ -10,18 +10,18 @@ enum NotificationPermission: Equatable {
 
     var title: String {
         switch self {
-        case .notDetermined: "Permissão ainda não solicitada"
-        case .denied: "Notificações desativadas"
-        case .authorized: "Notificações ativadas"
-        case .provisional: "Notificações provisórias ativadas"
+        case .notDetermined: "Permission Not Requested"
+        case .denied: "Notifications Disabled"
+        case .authorized: "Notifications Enabled"
+        case .provisional: "Provisional Notifications Enabled"
         }
     }
 
     var detail: String {
         switch self {
-        case .notDetermined: "Autorize para receber lembretes neste dispositivo."
-        case .denied: "Ative as notificações nos Ajustes do iOS para agendar lembretes."
-        case .authorized, .provisional: "Você pode agendar um lembrete local agora."
+        case .notDetermined: "Allow notifications to receive reminders on this device."
+        case .denied: "Enable notifications in iOS Settings to schedule reminders."
+        case .authorized, .provisional: "You can schedule a local reminder now."
         }
     }
 }

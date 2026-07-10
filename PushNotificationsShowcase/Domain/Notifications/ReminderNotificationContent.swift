@@ -12,7 +12,7 @@ enum ReminderNotificationContentFactory {
     static func scheduled(from input: ReminderScheduleInput, identifier: String = UUID().uuidString) -> ReminderNotificationContent {
         ReminderNotificationContent(
             identifier: identifier,
-            title: "Lembrete",
+            title: "Reminder",
             body: input.title,
             date: input.date,
             delivery: .scheduled
@@ -22,7 +22,7 @@ enum ReminderNotificationContentFactory {
     static func immediate(title: String, now: Date = .now, identifier: String = UUID().uuidString) throws -> ReminderNotificationContent {
         ReminderNotificationContent(
             identifier: identifier,
-            title: "Lembrete",
+            title: "Reminder",
             body: try ReminderTitle.validated(title),
             date: now,
             delivery: .immediate

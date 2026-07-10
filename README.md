@@ -104,8 +104,8 @@ The app works out of the box: local notifications do not require a server, API k
 
 ### Local Notifications
 
-1. Run the app and tap **Permitir notificações** when iOS displays the permission prompt.
-2. Use **Enviar agora** to receive a reminder after a short delay, or select a future date and use **Agendar lembrete**.
+1. Run the app and tap **Allow Notifications** when iOS displays the permission prompt.
+2. Use **Send Now** to receive a reminder after a short delay, or select a future date and use **Schedule Reminder**.
 3. Tap a received notification to open its reminder detail screen.
 
 The permission prompt appears only once per installation. To test it again, delete the app from the simulator or change its notification permission in **Settings**.

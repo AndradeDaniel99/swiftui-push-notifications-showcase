@@ -22,8 +22,8 @@ enum ReminderDelivery: String, Codable, Equatable {
 
     var title: String {
         switch self {
-        case .scheduled: "Agendado"
-        case .immediate: "Enviado agora"
+        case .scheduled: "Scheduled"
+        case .immediate: "Sent Now"
         }
     }
 

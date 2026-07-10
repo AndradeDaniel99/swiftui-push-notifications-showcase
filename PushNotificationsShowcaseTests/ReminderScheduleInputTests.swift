@@ -5,9 +5,9 @@ import Testing
 struct ReminderScheduleInputTests {
     @Test func trimsTitleWhenInputIsValid() throws {
         let date = Date.now.addingTimeInterval(60)
-        let result = try ReminderScheduleInput(title: "  Beber água  ", date: date).validated(now: .now)
+        let result = try ReminderScheduleInput(title: "  Drink water  ", date: date).validated(now: .now)
 
-        #expect(result.title == "Beber água")
+        #expect(result.title == "Drink water")
     }
 
     @Test func rejectsEmptyTitle() {
@@ -18,7 +18,7 @@ struct ReminderScheduleInputTests {
 
     @Test func rejectsDateInThePast() {
         #expect(throws: ReminderScheduleError.dateMustBeInFuture) {
-            try ReminderScheduleInput(title: "Pausa", date: .now.addingTimeInterval(-1)).validated()
+            try ReminderScheduleInput(title: "Break", date: .now.addingTimeInterval(-1)).validated()
         }
     }
 }

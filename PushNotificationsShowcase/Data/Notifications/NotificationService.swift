@@ -13,6 +13,6 @@ enum NotificationServiceError: LocalizedError {
     case permissionDenied
 
     var errorDescription: String? {
-        "As notificações não estão autorizadas neste dispositivo."
+        "Notifications are not authorized on this device."
     }
 }
