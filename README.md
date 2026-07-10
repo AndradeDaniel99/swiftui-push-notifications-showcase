@@ -126,10 +126,6 @@ xcodebuild test \
 
 The tests verify title and date validation, scheduled and immediate notification content, history metadata, and ViewModel behavior when sending a reminder immediately.
 
-## Screenshots
-
-<img width="250" alt="Push notifications home screen with send now, scheduling, and history" src="Screenshots/home.png" />
-
 ## License
 
 SwiftUI Push Notifications Showcase is available under the MIT License. See [LICENSE](LICENSE) for details.
