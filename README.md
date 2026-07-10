@@ -10,7 +10,8 @@ A compact SwiftUI local-notifications app built with `UserNotifications`, depend
 
 This showcase is designed as a focused reference project: the UI stays simple, `UserNotifications` remains isolated from presentation code, and the complete notification flow runs without a backend or private infrastructure.
 
-<img width="250" alt="Push notifications home screen" src="Screenshots/home.png" />
+<img width="250" alt="Simulator Screen Recording - iPhone 17 Pro - 2026-07-10 at 18 39 11" src="https://github.com/user-attachments/assets/9eee9fb7-b074-4b02-9fac-4343ec44dc29" />
+<img width="250" alt="Simulator Screen Recording - iPhone 17 Pro - 2026-07-10 at 18 39 30" src="https://github.com/user-attachments/assets/f2356927-f2f8-476f-9fc7-da8f7b99e427" />
 
 ---
 
